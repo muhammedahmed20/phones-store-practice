@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="./styles/bootstrap.css" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./styles/style.css" />
+
+    <!-- Fontawesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <header
+      class="container col-12 d-flex justify-content-between align-items-center py-3 border-bottom border-dark-subtle"
+    >
+      <div class="d-flex gap-1 align-items-center">
+        <i class="fa-solid fa-mobile-screen-button text-primary fs-1"></i>
+        <div class="logo col-10">
+          <h1 class="mb-0 fw-bold text-center fs-3">Mobily</h1>
+          <p class="mb-0 fw-semibold text-center" style="font-size: 10px">
+            Phone-Shop
+          </p>
+        </div>
+      </div>
+
+      <div class="d-flex align-items-center gap-2">
+        <p class="mb-0 fw-bold"><span class="mood">Dark </span>Mood</p>
+        <div class="toggle bg-secondary-subtle rounded-pill" onclick="toggle()">
+          <div class="circle-btn bg-white rounded-circle"></div>
+        </div>
+      </div>
+    </header>
+
+    <main class="container col-12 py-5">
+      <div class="col-12 d-flex justify-content-end mb-3">
+        <!-- Button trigger modal -->
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-toggle="modal"
+          data-bs-target="#addNew"
+        >
+          Add new phone
+        </button>
+
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="addNew"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">
+                  Add new phone
+                </h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <form class="col-12 d-flex flex-column">
+                  <input
+                    id="phoneName"
+                    type="text"
+                    placeholder="Enter the phone name"
+                    class="py-2 px-3 mb-3 rounded-2 border border-2"
+                  />
+                  <input
+                    id="phonePrice"
+                    type="number"
+                    placeholder="Enter the phone price"
+                    class="py-2 px-3 mb-3 rounded-2 border border-2"
+                  />
+                  <input
+                    id="phoneQty"
+                    type="number"
+                    placeholder="Enter the qty"
+                    class="py-2 px-3 mb-3 rounded-2 border border-2"
+                  />
+                  <button
+                    onclick="addNewPhone()"
+                    data-bs-dismiss="modal"
+                    type="button"
+                    class="btn btn-primary"
+                  >
+                    Add new phone
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <table
+        class="table table-light table-bordered table-hover table-striped text-center"
+      >
+        <thead class="table-primary">
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Qty</th>
+            <th>Total</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <!-- update modal -->
+      <div
+        class="modal fade"
+        id="updateAll"
+        tabindex="-1"
+        aria-labelledby="updateAllLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">
+                Modal title
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              
+              <form id="updateForm">
+                <input
+                id="updatePhoneName"
+                type="text"
+                placeholder="Enter the new phone name"
+                class="py-2 px-3 mb-3 rounded-2 border border-2 col-12"
+                  />
+                  <input
+                    id="updatePhonePrice"
+                    type="number"
+                    placeholder="Enter the new phone price"
+                    class="py-2 px-3 mb-3 rounded-2 border border-2 col-12"
+                  />
+                  <input
+                    id="updatePhoneQty"
+                    type="number"
+                    placeholder="Enter the new qty"
+                    class="py-2 px-3 mb-3 rounded-2 border border-2 col-12"
+                  />
+                  <button type="button" data-bs-dismiss="modal" onclick="updatePhone()" class="btn btn-primary col-12 my-2">save</button>
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- JS file -->
+    <script src="./js/script.js"></script>
+    <!-- Bootstrap-JS -->
+    <script src="./js/bootstrap.bundle.js"></script>
+    <!-- Sweet Alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
+</html>
